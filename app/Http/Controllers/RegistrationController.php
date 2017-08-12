@@ -9,8 +9,6 @@ use App\Volunteer;
 
 class RegistrationController extends Controller
 {
-    //
-
     public function register(Request $request){	
 
                 $request->merge(['password' => Hash::make($request->password)]);

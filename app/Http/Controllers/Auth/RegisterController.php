@@ -6,7 +6,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-
+use App\Foundation;
 class RegisterController extends Controller
 {
     /*
@@ -69,13 +69,8 @@ class RegisterController extends Controller
         $foundation_id = substr(sha1(mt_rand().microtime()), mt_rand(0,35),7);
 
         //Dapat inig register sa foundation naa iyang mga description, foundation name, website url, facebook url. 
-        /*Foundation::create([
-           'foundation_id'=> $foundation_id,
-                                        
-                     
-            ]);*/
 
-        return User::create([
+        $newUser = User::create([
 
             'user_id' => $user_id,
             'name' => $data['name'],
@@ -85,5 +80,17 @@ class RegisterController extends Controller
             'api_token' => $api_token
             
         ]);
+        
+        Foundation::create([
+           'foundation_id'=> $foundation_id,
+           'image_url' => "",
+           'description' => "",
+           'location' => "",
+           'email' => "",
+           'verified' => "0",
+           "name" => "asdadasdadasdasa",
+           'user_id' => $newUser->user_id
+        ]);
+        return $newUser;
     }
 }

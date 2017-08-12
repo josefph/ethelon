@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
 @section('additional_styles')
-    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/normalize.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/fonts/font-awesome-4.3.0/css/font-awesome.min.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/demo.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/card.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/pattern.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/normalize.css').'?'.rand() }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/fonts/font-awesome-4.3.0/css/font-awesome.min.css').'?'.rand() }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/demo.css').'?'.rand() }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/card.css').'?'.rand() }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('cardExpansion/css/pattern.css').'?'.rand() }}" />
 
     <script>
     if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
@@ -22,7 +22,7 @@
 @section('content')
     <h3><i class="fa fa-angle-right"></i> EXCITING ACTIVITIES AHEAD</h3>
     <div class="row mt">
-                            <div class="pattern pattern--hidden"></div>
+        <div class="pattern pattern--hidden"></div>
                                                 <div class="wrapper">
 
                             <!-- trianglify pattern container -->
@@ -164,6 +164,7 @@
                             </div>
                     <!-- /cards -->
             <!-- Related demos -->
+        @if($activities)
         <?php
             $count = 2;
         ?>
@@ -209,6 +210,7 @@
             $count++;
         ?>
             @endforeach<!-- trianglify pattern container -->
+            @endif
                                 </div>
            
             <section class="content content--related">
@@ -218,12 +220,12 @@
 @endsection
 
 @section('additional_scripts')
-    <script src="{{ asset('cardExpansion/js/vendors/trianglify.min.js') }}"></script>
-    <script src="{{ asset('cardExpansion/js/vendors/TweenMax.min.js') }}"></script>
-    <script src="{{ asset('cardExpansion/js/vendors/ScrollToPlugin.min.js') }}"></script>
-    <script src="{{ asset('cardExpansion/js/vendors/cash.min.js') }}"></script>
-    <script src="{{ asset('cardExpansion/js/Card-circle.js') }}"></script>
-    <script src="{{ asset('cardExpansion/js/demo.js') }}"></script>
+    <script src="{{ asset('cardExpansion/js/vendors/trianglify.min.js').'?'.rand() }}"></script>
+    <script src="{{ asset('cardExpansion/js/vendors/TweenMax.min.js').'?'.rand() }}"></script>
+    <script src="{{ asset('cardExpansion/js/vendors/ScrollToPlugin.min.js').'?'.rand() }}"></script>
+    <script src="{{ asset('cardExpansion/js/vendors/cash.min.js').'?'.rand() }}"></script>
+    <script src="{{ asset('cardExpansion/js/Card-circle.js').'?'.rand() }}"></script>
+    <script src="{{ asset('cardExpansion/js/demo.js').'?'.rand() }}"></script>
     <script>
         //custom select box
 

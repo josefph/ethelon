@@ -17,7 +17,14 @@ class ActivityController extends Controller
     
     public function index()
     {
-        $activities = \Auth::user()->foundation->activities;
+        if(\Auth::user()->foundation)
+        {
+            $activities = \Auth::user()->foundation->activities;
+        }
+        else{
+            $activities = null;
+        }
+
         return view('activity.activityIndex', compact('activities'));
     }
     public function create()

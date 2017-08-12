@@ -11,9 +11,10 @@
 |
 */
 Auth::routes();
-//Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::post('/foundation/register', 'RegisterController@register');
     Route::get('/', 'DashboardController@index');
     Route::get('/activity', 'ActivityController@index');
     Route::get('/activity/create', 'ActivityController@create');
     Route::post('/activity/store', 'ActivityController@store');
-//});
+});
